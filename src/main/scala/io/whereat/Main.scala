@@ -28,7 +28,7 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
-trait MainTrait extends Routes with Erasable {
+/*trait MainTrait extends Routes with Erasable {
   implicit val system: ActorSystem = ActorSystem()
 
   implicit def executor: ExecutionContextExecutor = system.dispatcher
@@ -48,7 +48,7 @@ trait MainTrait extends Routes with Erasable {
       Http().bindAndHandle(route(LocationDaoImpl(db)), httpInterface, httpPort)
     }
   }
-}
+}*/
 
 object Main extends App with Config with MainTrait {
   run
