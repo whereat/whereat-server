@@ -1,3 +1,6 @@
+[![Stories in Ready](https://badge.waffle.io/whereat/wiki.svg?label=ready&title=open tickets)](http://waffle.io/whereat/whereat-location-server)
+[![Gitter](https://badges.gitter.im/whereat/whereat-location-server.svg)](https://gitter.im/whereat/whereat-location-server?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+
 About Where@
 ===============
 
