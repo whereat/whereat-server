@@ -28,28 +28,28 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
-// trait MainTrait extends Routes with Erasable {
-//   implicit val system: ActorSystem = ActorSystem()
+trait MainTrait extends Routes with Erasable {
+  implicit val system: ActorSystem = ActorSystem()
 
-//   implicit def executor: ExecutionContextExecutor = system.dispatcher
+  implicit def executor: ExecutionContextExecutor = system.dispatcher
 
-//   implicit val materializer: Materializer = ActorMaterializer()
+  implicit val materializer: Materializer = ActorMaterializer()
 
-//   val dao = LocationDaoImpl(db)
-//   val eraseActor = system.actorOf(Props[EraseActor])
+  val dao = LocationDaoImpl(db)
+  val eraseActor = system.actorOf(Props[EraseActor])
 
-//   def run: Future[ServerBinding] = {
+  def run: Future[ServerBinding] = {
 
-//     dao.build flatMap { _ ⇒
+    dao.build flatMap { _ ⇒
 
-//       println(s"Server online at http://localhost:$httpPort")
+      println(s"Server online at http://localhost:$httpPort")
 
-//       scheduleErase(system, eraseActor, dao, 1 hour)
-//       Http().bindAndHandle(route(LocationDaoImpl(db)), httpInterface, httpPort)
-//     }
-//   }
-// }
+      scheduleErase(system, eraseActor, dao, 1 hour)
+      Http().bindAndHandle(route(LocationDaoImpl(db)), httpInterface, httpPort)
+    }
+  }
+}
 
-// object Main extends App with Config with MainTrait {
-//   run
-// }
+object Main extends App with Config with MainTrait {
+  run
+}
